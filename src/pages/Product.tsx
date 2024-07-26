@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Loader from "../components/shared/loader/Loader";
 interface Item {
   albumId: number;
   id: number;
@@ -32,7 +33,7 @@ const Product = () => {
 
   return (
     <>
-      {(loading && <span className='text-9xl'>loading...</span>) ||
+      {(loading && <Loader />) ||
         (item && (
           <div className='text-[#DDF6F2]'>
             <div className='flex justify-between gap-x-12'>

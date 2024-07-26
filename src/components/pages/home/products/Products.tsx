@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../../../shared/loader/Loader";
 interface Item {
   albumId: number;
   id: number;
@@ -31,9 +32,10 @@ const Products = () => {
   return (
     <div className='rounded-2xl border border-[#DDF6F2] px-8 py-6'>
       <h2 className='border-b border-[#DDF6F2] pb-2 text-[#DDF6F2]'>Latest Drops</h2>
-      <ul className='mt-5 flex flex-wrap items-center justify-center gap-4'>
-        {(loading && <span className='text-9xl'>loading...</span>) ||
-          (data &&
+
+      {(loading && <Loader />) || (
+        <ul className='mt-5 flex flex-wrap items-center justify-center gap-4'>
+          {data &&
             data.map((item: Item) => {
               return (
                 <li key={item.id} className='max-w-40 rounded-2xl border border-[#DDF6F2] p-2'>
@@ -43,8 +45,9 @@ const Products = () => {
                   </Link>
                 </li>
               );
-            }))}
-      </ul>
+            })}
+        </ul>
+      )}
     </div>
   );
 };
