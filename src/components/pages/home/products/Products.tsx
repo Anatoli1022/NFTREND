@@ -30,15 +30,15 @@ const Products = () => {
   }, []);
 
   return (
-    <div className='rounded-2xl border border-[#DDF6F2] px-8 py-6'>
-      <h2 className='border-b border-[#DDF6F2] pb-2 text-[#DDF6F2]'>Latest Drops</h2>
+    <div className='rounded-2xl border border-[#DDF6F2] border-opacity-25 px-8 py-6'>
+      <h2 className='border-b border-[#DDF6F2] border-opacity-25 pb-2 text-[#DDF6F2]'>Latest Drops</h2>
 
       {(loading && <Loader />) || (
         <ul className='mt-5 flex flex-wrap items-center justify-center gap-4'>
           {data &&
             data.map((item: Item) => {
               return (
-                <li key={item.id} className='max-w-40 rounded-2xl border border-[#DDF6F2] p-2'>
+                <li key={item.id} className='max-w-40 rounded-2xl border border-[#DDF6F2] border-opacity-25 p-2'>
                   <Link to={`product/${item.id}`}>
                     <img src={item.thumbnailUrl} alt={item.title} />
                     <p className='line-clamp-1 text-[#DDF6F2]'>{item.title}</p>
