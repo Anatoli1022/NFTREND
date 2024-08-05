@@ -35,12 +35,14 @@ const Product = () => {
     <>
       {(loading && <Loader />) ||
         (item && (
-          <div className='text-[#DDF6F2]'>
-            <div className='flex justify-between gap-x-12'>
-              <div className='max-w-36'>
+          <div className='px-2 text-[#DDF6F2]'>
+            <div className='flex items-center justify-between gap-12 md:flex-wrap md:justify-center'>
+              <div className='max-w-36 gap-3 md:flex md:max-w-none md:items-center'>
                 <img src={item.thumbnailUrl} alt={item.title} />
-                <span className='mt-4 block'>{item.title}</span>
-                <span className='mt-4 block'>{item.albumId}</span>
+                <div>
+                  <span className='mt-4 block'>{item.title}</span>
+                  <span className='mt-4 block'>{item.albumId}</span>
+                </div>
               </div>
               <div>
                 <p>
